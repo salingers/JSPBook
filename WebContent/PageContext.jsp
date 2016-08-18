@@ -17,8 +17,8 @@
 			out.println("application attribute¡G" + e.nextElement() + "<br>");
 		}
 	%>
-	
-	
+
+
 
 	<%
 		pageContext.setAttribute("Name", "mike");
@@ -30,8 +30,8 @@
 		out.println("Name = " + Name);
 		out.println("Password = " + Password);
 	%>
-	
-	
+
+
 	\${pageContext.request.queryString}¡G${pageContext.request.queryString}
 	</br> \${pageContext.request.requestURL}¡G${pageContext.request.requestURL}
 	</br> \${pageContext.request.contextPath}¡G${pageContext.request.contextPath}

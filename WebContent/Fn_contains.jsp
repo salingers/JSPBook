@@ -6,6 +6,9 @@
 <head>
 </head>
 <body>
+
+	</br>
+	
 	<c:set var="s1" value="There is a castle on a cloud" />
 
 	<table cellpadding="5" border="1">
@@ -17,32 +20,32 @@
 		<tr>
 			<td>${s1}</td>
 			<td>castle</td>
-			<td>${fn:indexOf(s1, "castle")}</td>
+			<td>${fn:contains(s1, "castle")}</td>
 		</tr>
 		<tr>
 			<td>${s1}</td>
-			<td>cloud</td>
-			<td>${fn:indexOf(s1, "cloud")}</td>
+			<td>CASTLE</td>
+			<td>${fn:contains(s1, "CASTLE")}</td>
 		</tr>
 		<tr>
 			<td>${s1}</td>
 			<td>null</td>
-			<td>${fn:indexOf(s1, undefined)}</td>
+			<td>${fn:contains(s1, undefined)}</td>
 		</tr>
 		<tr>
 			<td>${s1}</td>
 			<td>empty string</td>
-			<td>${fn:indexOf(s1, "")}</td>
+			<td>${fn:contains(s1, "")}</td>
 		</tr>
 		<tr>
 			<td>null</td>
 			<td>castle</td>
-			<td>${fn:indexOf(undefined, "castle")}</td>
+			<td>${fn:contains(undefined, "castle")}</td>
 		</tr>
 		<tr>
 			<td>null</td>
 			<td>empty string</td>
-			<td>${fn:indexOf(undefined, "")}</td>
+			<td>${fn:contains(undefined, "")}</td>
 		</tr>
 	</table>
 
