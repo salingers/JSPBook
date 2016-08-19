@@ -2,25 +2,20 @@
 <%@ page import="java.util.*"%>
 <%@ page import="tw.com.javaworld.CH10.*"%>
 
-<%!// ¥Ñ©ó¨Ï¥ÎªÌ¦W³æ¬O¦@¨Éª«¥ó¥B³]©w¬°³æ¤@instance	
-	// ¬G«Å§i¤è¦¡¤£¯à¥Î<jsp:useBean>ªºtag	
-
-	UserList userlist = UserList.getInstance();%>
+<%
+	UserList userlist = UserList.getInstance();
+%>
 <jsp:useBean id="usertrace" class="tw.com.javaworld.CH10.UserTrace"
 	scope="session" />
 <%
 	String user_id = request.getParameter("user_id");
 
-	// ³]©w¨Ï¥ÎªÌid¶i¤J°lÂÜª«¥ó¤¤	      	
 	usertrace.setUserName(user_id);
 
-	// ±N¨Ï¥ÎªÌ°lÂÜª«¥ó¥[¤Jsession¤º	   		
 	session.setAttribute("usertrace", usertrace);
 
-	// ±N¨Ï¥ÎªÌ¥[¤J¨Ï¥ÎªÌ¦W³æ¤¤   		
 	userlist.addUser(usertrace.getUserName());
 
-	// ³]©wsession¦b10¬íÄÁ¤§¤º¨S¦³¬¡°Ê´N¨ÏsessionµL®Ä	    
 	session.setMaxInactiveInterval(10);
 %>
 
@@ -31,13 +26,22 @@
 </head>
 <body>
 
-	<h2>½u¤W¨Ï¥ÎªÌ¦W³æ</h2>
+
+	<form method="POST" action="UserList.jsp">
+
+		<p>
+			è«‹è¼¸å…¥ä½¿ç”¨è€…IDï¼š<input type="text" name="user_id">
+		</p>
+		<p>
+			<input type="submit" value="ç™»å…¥">
+		</p>
+
+	</form>
 
 	<center>
 		<p>
 			<textarea rows="9" cols="15">
 <%
-	// ±N½u¤W¨Ï¥ÎªÌ¦W³æ¦L¥X  
 	Enumeration elements = userlist.getList();
 
 	while (elements.hasMoreElements())

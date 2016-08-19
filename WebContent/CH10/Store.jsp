@@ -4,7 +4,6 @@
 	Vector buylist = (Vector) session.getAttribute("shoppingcart");
 	String action = request.getParameter("action");
 
-	//  刪除購物車中的書籍
 	if (action.equals("DELETE"))
 	{
 		String del = request.getParameter("del");
@@ -12,7 +11,6 @@
 		buylist.removeElementAt(d);
 	}
 
-	// 新增書籍至購物車中
 	else if (action.equals("ADD"))
 	{
 		boolean match = false;
@@ -21,8 +19,7 @@
 	class="tw.com.javaworld.CH10.Book" />
 <jsp:setProperty name="newBook" property="*" />
 <%
-	//新增第一本書籍至購物車時
-		if (buylist == null)
+	if (buylist == null)
 		{
 			buylist = new Vector();
 			buylist.addElement(newBook);
@@ -33,7 +30,6 @@
 			{
 				Book book = (Book) buylist.elementAt(i);
 
-				// 假若新增的書籍和購物車的書籍一樣時
 				if (book.getName().equals(newBook.getName()))
 				{
 					book.setQuantity(book.getQuantity() + newBook.getQuantity());
@@ -42,9 +38,10 @@
 				} //end of if name matches
 			} // end of for
 
-			// 假若新增的書籍和購物車的書籍不一樣時
 			if (!match)
+			{
 				buylist.addElement(newBook);
+			}
 		}
 	}
 
