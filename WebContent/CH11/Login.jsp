@@ -11,6 +11,7 @@
 <h2>½Ðµn¤J - ¦WºÙ¡Gadmin ±K½X¡G1234</h2>
 
 <c:set var="passed" value="passing" scope="session" />
+
 <form method="post" action="/JSPBook/LoginChecker">
   <table>
     <tr>

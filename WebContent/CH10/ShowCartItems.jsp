@@ -1,8 +1,7 @@
 <%@ page language="java" contentType="text/html;Big5"%>
 <%@ page import="java.util.*"%>
 
-<%!
-public void show_items(HttpSession session, JspWriter out) throws java.io.IOException
+<%!public void show_items(HttpSession session, JspWriter out) throws java.io.IOException
 	{
 		out.println("<H1>列出所有購物車內的物件</H1><br>");
 
